@@ -1,0 +1,8 @@
+[package]
+name = "rocket-counter"
+version = "0.1.0"
+authors = ["Lorenzo Manacorda <lorenzo@mailbox.org>"]
+
+[dependencies]
+rocket = "0.3.3"
+rocket_codegen = "0.3.3"
