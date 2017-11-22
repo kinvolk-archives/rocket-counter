@@ -10,6 +10,7 @@ extern crate serde_derive;
 
 use std::sync::atomic::{AtomicUsize, ATOMIC_USIZE_INIT, Ordering};
 
+use rocket::response::Redirect;
 use rocket_contrib::Template;
 
 static COUNTER: AtomicUsize = ATOMIC_USIZE_INIT;
@@ -29,8 +30,10 @@ fn index() -> Template {
 }
 
 #[post("/")]
-fn reset() {
+fn reset() -> Redirect {
     COUNTER.store(0, Ordering::SeqCst);
+
+    Redirect::to("/")
 }
 
 fn main() {
